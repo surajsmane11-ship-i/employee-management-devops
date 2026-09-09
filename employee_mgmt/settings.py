@@ -127,19 +127,38 @@ import os
 #     }
 # }
 
+
+# import os
+# from dotenv import load_dotenv
+
+# load_dotenv()
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv('employee_db'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('suraj#2743'),
+#         'HOST': os.getenv('employee-db.c123456789.ap-south-1.rds.amazonaws.com'),
+#         'PORT': os.getenv('DB_PORT', '3306'),
+#     }
+# }
+
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('employee_db'),
-        'USER': os.getenv('admin'),
-        'PASSWORD': os.getenv('suraj#2743'),
-        'HOST': os.getenv('employee-db.c123456789.ap-south-1.rds.amazonaws.com'),
-        'PORT': os.getenv('DB_PORT', '3306'),
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
