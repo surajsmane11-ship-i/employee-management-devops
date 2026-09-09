@@ -81,18 +81,64 @@ WSGI_APPLICATION = 'employee_mgmt.wsgi.application'
 
 import os
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.environ.get('employee_db'),
+#         'USER': os.environ.get('admin'),
+#         'PASSWORD': os.environ.get('suraj#2743'),
+#         'HOST': os.environ.get('mysql -h database-1.czk2aey0y0p0.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p --ssl-mode=VERIFY_IDENTITY --ssl-ca=./global-bundle.pem'),
+#         'PORT': os.environ.get('3306'),
+#     }
+# }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'employee_db',
+#         'USER': 'admin',
+#         'PASSWORD': 'suraj#2743',
+#         'HOST': 'employee-db.czk2aey0y0p0.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p --ssl-mode=VERIFY_IDENTITY --ssl-ca=./global-bundle.pem',
+#         'PORT': '3306',
+#     }
+#}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'employee_db',
+#         'USER': 'admin',
+#         'PASSWORD': 'suraj#2743',
+#         'HOST': 'mysql -h database-1.czk2aey0y0p0.ap-south-1.rds.amazonaws.com',
+#         'PORT': '3306',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'employee_db',
+#         'USER': 'admin',
+#         'PASSWORD': 'suraj#2743',
+#         'HOST': 'employee-db.c123456789.ap-south-1.rds.amazonaws.com',
+#         'PORT': '3306',
+#     }
+# }
+
+import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydatabase',
-        'USER': 'root',
-        'PASSWORD': "Smane@2743",
-        'HOST': '127.0.0.1',
-        'PORT': '3307',
+        'NAME': os.getenv('employee_db'),
+        'USER': os.getenv('admin'),
+        'PASSWORD': os.getenv('suraj#2743'),
+        'HOST': os.getenv('employee-db.c123456789.ap-south-1.rds.amazonaws.com'),
+        'PORT': os.getenv('DB_PORT', '3306'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

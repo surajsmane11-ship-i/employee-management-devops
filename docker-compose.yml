@@ -27,25 +27,60 @@
 
 
 
-services:
+# services:
+#   db:
+#     image: mysql:8.4
+#     container_name: mysql_db
+#     restart: always
+#     environment:
+#       MYSQL_DATABASE: mydatabase
+#       MYSQL_ROOT_PASSWORD: suraj@2743
+#     volumes:
+#       - mysql_data:/var/lib/mysql
 
-  db:
-    image: mysql:8.4
-    container_name: mysql_db
-    restart: always
-
-    environment:
-      MYSQL_DATABASE: mydatabase
-      MYSQL_ROOT_PASSWORD: "Smane@2743"
+#   web:
+#     build: .
+#     container_name: django_web
+#     command: python manage.py runserver 0.0.0.0:8000
+#     volumes:
+#       - .:/app
 #     ports:
+#       - "8000:8000"
+#     depends_on:
+#       - db
+
+# volumes:
+#   mysql_data:
+
+# services:
+#   web:
+#     build: .
+#     container_name: employee-management
+#     ports:
+#       - "8001:8000"
+#     environment:
+#       DB_NAME: employee_db
+#       DB_USER: admin
+#       DB_PASSWORD: suraj#2743
+#       DB_HOST: employee-db.czk2aey0y0p0.ap-south-1.rds.amazonaws.com
+#       DB_PORT: "3306"
+
+
+services:
+    
+
+  web:
+    image: employee-management:latest
+    container_name: employee-management
 
     ports:
-      - "3307:3306"
+      - "8000:8000"
 
-    volumes:
-      - mysql_data:/var/lib/mysql
+    environment:
+      DB_NAME: employee_db
+      DB_USER: admin
+      DB_PASSWORD: suraj#2743
+      DB_HOST: employee-db.c123456789.ap-south-1.rds.amazonaws.com
+      DB_PORT: 3306
 
-volumes:
-  mysql_data:
-
-  
+      
